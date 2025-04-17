@@ -60,7 +60,8 @@ jobs:
         uses: actions/cache/save@v4
         with:
           path: .token
-          key: ${{ runner.os }}-cache-token-${{ hashFiles('.token/*.json') }}
+          key: ${{ runner.os }}-cache-token-${{ github.run_id }}-${{ hashFiles('.token/*.json') }}
+
 
       - name: 🚗 Keep Running
         if: github.event_name == 'schedule'
